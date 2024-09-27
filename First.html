@@ -1,0 +1,20 @@
+const weatherForm = document.getElementById('weatherForm');
+const weatherInfo = document.getElementById('weatherInfo');
+weatherForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+  const city = document.getElementById('city').value;
+
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid="b664ccfc541bb1f7c2d3fe8c5ad32d27
+"`)
+    .then(response => response.json())
+    .then(data => {
+      const { name, main, weather } = data;
+      const temperature = main.temp;
+      const description = weather[0].description;
+      weatherInfo.innerHTML = `<p>Weather in ${name}: ${temperature}°C, ${description}</p>`;
+    })
+    .catch(error => {
+      console.error('Error fetching weather data:', error);
+      weatherInfo.innerHTML = '<p>Failed to fetch weather data. Please try again later.</p>';
+    });
+});

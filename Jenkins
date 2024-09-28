@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'git@github.com:Prathyusha0508/Devops.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Building...'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running tests...
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...
+            }
+        }
+    }
+}

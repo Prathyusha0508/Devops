@@ -4,22 +4,26 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                // Check out code from Git
                 git branch: 'main', url: 'git@github.com:Prathyusha0508/Devops.git'
             }
         }
         stage('Build') {
             steps {
                 echo 'Building...'
+                // Add your build steps here
             }
         }
         stage('Test') {
             steps {
-                echo 'Running tests...
+                echo 'Running tests...'  // Corrected line
+                // Add your test steps here
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying...
+                echo 'Deploying...'
+                // Add your deploy steps here
             }
         }
     }
